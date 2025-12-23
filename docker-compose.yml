@@ -1,0 +1,6 @@
+services:
+  monitoringconnectiontestservice:
+    image: ${DOCKER_REGISTRY-}monitoringconnectiontestservice
+    build:
+      context: .
+      dockerfile: MonitoringConnectionTestService/Dockerfile
