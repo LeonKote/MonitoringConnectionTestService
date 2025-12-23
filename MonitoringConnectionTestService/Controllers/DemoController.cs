@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+п»їusing Microsoft.AspNetCore.Mvc;
 using MonitoringConnectionLib.Interfaces;
 
 namespace MonitoringConnectionTestService.Controllers;
@@ -14,7 +14,7 @@ public class DemoController : ControllerBase
     public DemoController(IMetricsRegistry metrics, ILogger<DemoController> logger)
     {
         _metrics = metrics;
-        // создаём счётчик с label'ом "method"
+        // СЃРѕР·РґР°С‘Рј СЃС‡С‘С‚С‡РёРє СЃ label'РѕРј "method"
         _myRequests = _metrics.GetOrCreateCounter("demo_requests_total", "Total requests to demo endpoint", "method");
         _logger = logger;
     }
