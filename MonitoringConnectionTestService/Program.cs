@@ -1,6 +1,10 @@
+using MonitoringConnectionLib;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.AddMonitoringMetrics();
+builder.AddLogging();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -9,6 +13,8 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+app.UseMonitoringEndpoints();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -16,7 +22,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection(); с этой строчкой не работает prometheus
 
 app.UseAuthorization();
 
